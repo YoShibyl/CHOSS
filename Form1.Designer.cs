@@ -30,6 +30,7 @@ namespace CHOSS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHOSS));
             label1 = new Label();
             browseButton = new Button();
             label2 = new Label();
@@ -51,6 +52,9 @@ namespace CHOSS
             menuSceneBox = new TextBox();
             gameSceneBox = new TextBox();
             scenesGroupBox = new GroupBox();
+            label8 = new Label();
+            wsStatusTxt = new Label();
+            versionLabel = new Label();
             wsGroupBox.SuspendLayout();
             scenesGroupBox.SuspendLayout();
             SuspendLayout();
@@ -65,11 +69,10 @@ namespace CHOSS
             label1.Size = new Size(533, 38);
             label1.TabIndex = 0;
             label1.Text = "Clone Hero OBS Scene Switcher (CHOSS)";
-            label1.Click += label1_Click;
             // 
             // browseButton
             // 
-            browseButton.Location = new Point(16, 144);
+            browseButton.Location = new Point(16, 126);
             browseButton.Margin = new Padding(4);
             browseButton.Name = "browseButton";
             browseButton.Size = new Size(272, 36);
@@ -82,7 +85,7 @@ namespace CHOSS
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(13, 105);
+            label2.Location = new Point(13, 87);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
@@ -100,7 +103,7 @@ namespace CHOSS
             configSelectBox.FormattingEnabled = true;
             configSelectBox.ImeMode = ImeMode.NoControl;
             configSelectBox.Items.AddRange(new object[] { "--", "Clone Hero", "ScoreSpy CH", "YARG", "Custom 1", "Custom 2" });
-            configSelectBox.Location = new Point(158, 102);
+            configSelectBox.Location = new Point(158, 84);
             configSelectBox.Margin = new Padding(4);
             configSelectBox.Name = "configSelectBox";
             configSelectBox.Size = new Size(206, 33);
@@ -110,7 +113,7 @@ namespace CHOSS
             // 
             // currentsongTxtPathBox
             // 
-            currentsongTxtPathBox.Location = new Point(296, 145);
+            currentsongTxtPathBox.Location = new Point(296, 127);
             currentsongTxtPathBox.Margin = new Padding(4);
             currentsongTxtPathBox.Name = "currentsongTxtPathBox";
             currentsongTxtPathBox.Size = new Size(306, 31);
@@ -118,7 +121,7 @@ namespace CHOSS
             // 
             // saveConfigButton
             // 
-            saveConfigButton.Location = new Point(372, 102);
+            saveConfigButton.Location = new Point(372, 84);
             saveConfigButton.Margin = new Padding(4);
             saveConfigButton.Name = "saveConfigButton";
             saveConfigButton.Size = new Size(232, 36);
@@ -129,9 +132,9 @@ namespace CHOSS
             // 
             // btnStartStop
             // 
-            btnStartStop.Location = new Point(278, 297);
+            btnStartStop.Location = new Point(278, 308);
             btnStartStop.Name = "btnStartStop";
-            btnStartStop.Size = new Size(329, 73);
+            btnStartStop.Size = new Size(329, 77);
             btnStartStop.TabIndex = 9;
             btnStartStop.Text = "Connect";
             btnStartStop.UseVisualStyleBackColor = true;
@@ -140,7 +143,7 @@ namespace CHOSS
             // githubLink
             // 
             githubLink.AutoSize = true;
-            githubLink.Location = new Point(12, 57);
+            githubLink.Location = new Point(12, 52);
             githubLink.Name = "githubLink";
             githubLink.Size = new Size(301, 25);
             githubLink.TabIndex = 8;
@@ -156,7 +159,7 @@ namespace CHOSS
             wsGroupBox.Controls.Add(label6);
             wsGroupBox.Controls.Add(ipBox);
             wsGroupBox.Controls.Add(label3);
-            wsGroupBox.Location = new Point(278, 183);
+            wsGroupBox.Location = new Point(278, 165);
             wsGroupBox.Name = "wsGroupBox";
             wsGroupBox.Size = new Size(329, 108);
             wsGroupBox.TabIndex = 10;
@@ -166,7 +169,7 @@ namespace CHOSS
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(217, 35);
+            label7.Location = new Point(217, 36);
             label7.Name = "label7";
             label7.Size = new Size(16, 25);
             label7.TabIndex = 5;
@@ -174,7 +177,7 @@ namespace CHOSS
             // 
             // portBox
             // 
-            portBox.Location = new Point(233, 32);
+            portBox.Location = new Point(233, 33);
             portBox.Name = "portBox";
             portBox.Size = new Size(90, 31);
             portBox.TabIndex = 2;
@@ -182,7 +185,7 @@ namespace CHOSS
             // 
             // passBox
             // 
-            passBox.Location = new Point(104, 69);
+            passBox.Location = new Point(104, 70);
             passBox.Name = "passBox";
             passBox.PasswordChar = '•';
             passBox.Size = new Size(219, 31);
@@ -191,7 +194,7 @@ namespace CHOSS
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 72);
+            label6.Location = new Point(6, 73);
             label6.Name = "label6";
             label6.Size = new Size(87, 25);
             label6.TabIndex = 2;
@@ -199,7 +202,7 @@ namespace CHOSS
             // 
             // ipBox
             // 
-            ipBox.Location = new Point(75, 32);
+            ipBox.Location = new Point(75, 33);
             ipBox.Name = "ipBox";
             ipBox.Size = new Size(141, 31);
             ipBox.TabIndex = 1;
@@ -207,7 +210,7 @@ namespace CHOSS
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 35);
+            label3.Location = new Point(6, 36);
             label3.Name = "label3";
             label3.Size = new Size(66, 25);
             label3.TabIndex = 0;
@@ -216,7 +219,7 @@ namespace CHOSS
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(9, 111);
+            label5.Location = new Point(9, 96);
             label5.Name = "label5";
             label5.Size = new Size(203, 25);
             label5.TabIndex = 4;
@@ -225,7 +228,7 @@ namespace CHOSS
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 34);
+            label4.Location = new Point(6, 32);
             label4.Name = "label4";
             label4.Size = new Size(193, 25);
             label4.TabIndex = 3;
@@ -233,37 +236,69 @@ namespace CHOSS
             // 
             // menuSceneBox
             // 
-            menuSceneBox.Location = new Point(9, 139);
+            menuSceneBox.Location = new Point(9, 124);
             menuSceneBox.Name = "menuSceneBox";
             menuSceneBox.Size = new Size(244, 31);
             menuSceneBox.TabIndex = 2;
             // 
             // gameSceneBox
             // 
-            gameSceneBox.Location = new Point(9, 62);
+            gameSceneBox.Location = new Point(9, 60);
             gameSceneBox.Name = "gameSceneBox";
             gameSceneBox.Size = new Size(244, 31);
             gameSceneBox.TabIndex = 1;
             // 
             // scenesGroupBox
             // 
+            scenesGroupBox.Controls.Add(label8);
             scenesGroupBox.Controls.Add(label4);
             scenesGroupBox.Controls.Add(label5);
             scenesGroupBox.Controls.Add(gameSceneBox);
             scenesGroupBox.Controls.Add(menuSceneBox);
-            scenesGroupBox.Location = new Point(13, 187);
+            scenesGroupBox.Location = new Point(13, 169);
             scenesGroupBox.Name = "scenesGroupBox";
-            scenesGroupBox.Size = new Size(259, 183);
+            scenesGroupBox.Size = new Size(259, 213);
             scenesGroupBox.TabIndex = 11;
             scenesGroupBox.TabStop = false;
             scenesGroupBox.Text = "Scene Switcher settings";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.Location = new Point(9, 172);
+            label8.Name = "label8";
+            label8.Size = new Size(216, 25);
+            label8.TabIndex = 12;
+            label8.Text = "Names are case-sensitive!";
+            // 
+            // wsStatusTxt
+            // 
+            wsStatusTxt.AutoSize = true;
+            wsStatusTxt.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            wsStatusTxt.Location = new Point(284, 277);
+            wsStatusTxt.Name = "wsStatusTxt";
+            wsStatusTxt.Size = new Size(140, 25);
+            wsStatusTxt.TabIndex = 12;
+            wsStatusTxt.Text = "Not Connected";
+            // 
+            // versionLabel
+            // 
+            versionLabel.AutoSize = true;
+            versionLabel.Location = new Point(541, 22);
+            versionLabel.Name = "versionLabel";
+            versionLabel.Size = new Size(59, 25);
+            versionLabel.TabIndex = 13;
+            versionLabel.Text = "v1.1.0";
             // 
             // CHOSS
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(618, 384);
+            ClientSize = new Size(618, 394);
+            Controls.Add(versionLabel);
+            Controls.Add(wsStatusTxt);
             Controls.Add(scenesGroupBox);
             Controls.Add(wsGroupBox);
             Controls.Add(btnStartStop);
@@ -276,6 +311,7 @@ namespace CHOSS
             Controls.Add(label1);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             Margin = new Padding(4, 5, 4, 5);
             Name = "CHOSS";
@@ -312,5 +348,8 @@ namespace CHOSS
         private TextBox passBox;
         private Label label7;
         private TextBox portBox;
+        private Label label8;
+        private Label wsStatusTxt;
+        private Label versionLabel;
     }
 }

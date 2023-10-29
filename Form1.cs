@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Windows.Media;
 using OBSWebsocketDotNet;
 
 namespace CHOSS
@@ -28,33 +29,20 @@ namespace CHOSS
 
         }
 
-        private void FileChanged(object sender, FileSystemEventArgs e)
-        {
-            if (e.ChangeType == WatcherChangeTypes.Changed)
-            {
-                var info = new FileInfo(e.FullPath);
-                csTxtSize = info.Length;
-
-                if (csTxtSize > 0 && obs.IsConnected)
-                {
-                    obs.SetCurrentProgramScene(gameSceneBox.Text);
-                }
-                else if (obs.IsConnected)
-                {
-                    obs.SetCurrentProgramScene(menuSceneBox.Text);
-                }
-            }
-        }
-
         private void onConnect(object sender, EventArgs e)
         {
             keepAliveTokenSource = new CancellationTokenSource();
             CancellationToken keepAliveToken = keepAliveTokenSource.Token;
 
             btnStartStop.Text = "Disconnect";
+            wsGroupBox.Enabled = false;
+            browseButton.Enabled = false;
+            configSelectBox.Enabled = false;
             btnStartStop.Enabled = true;
+            currentsongTxtPathBox.Enabled = false;
+            wsStatusTxt.Text = "Connected!";
+            wsStatusTxt.ForeColor = System.Drawing.Color.Green;
 
-            
             if (File.Exists(csTxtPath))
             {
                 oldTxtSize = csTxtSize;
@@ -106,15 +94,15 @@ namespace CHOSS
                 {
                     keepAliveTokenSource.Cancel();
                 }
-
             }));
             btnStartStop.Text = "Connect";
             btnStartStop.Enabled = true;
-        }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            wsGroupBox.Enabled = true;
+            currentsongTxtPathBox.Enabled = true;
+            browseButton.Enabled = true;
+            wsStatusTxt.Text = "Not Connected";
+            wsStatusTxt.ForeColor = SystemColors.ControlText;
+            configSelectBox.Enabled = true;
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -227,7 +215,7 @@ namespace CHOSS
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(((LinkLabel)sender).Text);
+            System.Diagnostics.Process.Start("explorer", githubLink.Text);
         }
 
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -242,7 +230,6 @@ namespace CHOSS
                         ip = ipBox.Text;
                         port = portBox.Text;
                         password = passBox.Text;
-                        wsGroupBox.Enabled = false;
                         btnStartStop.Text = "Connecting...";
                         obs.ConnectAsync("ws://" + ip + ":" + port, password);
                     }
