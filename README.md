@@ -1,7 +1,8 @@
 # CHOSS - Clone Hero OBS Scene Switcher
 A websocket-based automatic scene switcher for OBS v28+, for use with Clone Hero and YARG.  Requires OBS v28 or newer.
 
-<img width="312" alt="image" src="https://github.com/YoShibyl/CHOSS/assets/18250695/e0e4f965-f42e-4ba5-94c7-4eb7e048217c">
+![image](https://github.com/YoShibyl/CHOSS/assets/18250695/f55c912c-8b34-4529-9e9d-30279309cc41)
+
 
 ## Prerequisites
 - Windows 10 or newer
